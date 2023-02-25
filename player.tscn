@@ -23,7 +23,6 @@ script = ExtResource("1_bwysj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i8sun")
-frame_progress = 0.0676977
 
 [node name="Label" type="Label" parent="."]
 offset_left = -53.0

@@ -1,12 +1,17 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var accel_mode = false
+
+@onready var initial_postion = position
+
+func _ready():
+	$AnimatedSprite2D.play()
+
 
 func _physics_process(delta):
 
@@ -31,7 +36,14 @@ func _physics_process(delta):
 		if direction_y:
 			velocity.y += direction_y * SPEED / 8
 			
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept"):
+		if accel_mode:
+			$Label.text = "velocity mode"
+		else:
+			$Label.text = "acceleration mode"
 		accel_mode = not accel_mode
+		
+	if Input.is_action_just_pressed("reset_player"):
+		position = initial_postion
 
 	move_and_slide()
