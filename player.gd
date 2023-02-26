@@ -8,7 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var initial_postion = position
 
 func _ready():
-	$AnimatedSprite2D.play()
+	pass
 
 
 func _physics_process(delta):

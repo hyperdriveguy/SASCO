@@ -1,32 +1,121 @@
-[gd_scene load_steps=6 format=3 uid="uid://boxqnfqqy3prr"]
+[gd_scene load_steps=12 format=3 uid="uid://boxqnfqqy3prr"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bwysj"]
-[ext_resource type="Texture2D" uid="uid://d0w6a001p6cwa" path="res://icon.svg" id="1_hkij5"]
-[ext_resource type="Texture2D" uid="uid://bl4sa4g5vngin" path="res://icon-2.svg" id="3_duhyo"]
+[ext_resource type="Texture2D" uid="uid://ccv3vsw8rhq8n" path="res://assets/sprites/player_overworld/overworld_player_still.png" id="2_624xd"]
+[ext_resource type="Texture2D" uid="uid://csv5i4pmnht4y" path="res://assets/sprites/player_overworld/overworld_player_side_step.png" id="3_f2bfq"]
+[ext_resource type="Texture2D" uid="uid://drg43agc14pj" path="res://assets/sprites/player_overworld/overworld_player_step.png" id="3_nqepi"]
+[ext_resource type="Texture2D" uid="uid://cufnc1m3wy72v" path="res://assets/sprites/player_overworld/overworld_player_side_still.png" id="3_ob4t8"]
+[ext_resource type="Texture2D" uid="uid://mr4gfwb6qwpr" path="res://assets/sprites/player_overworld/overworld_player_back_still.png" id="4_wv8yl"]
+[ext_resource type="Script" path="res://player_overworld_anim.gd" id="4_yxtip"]
+[ext_resource type="Texture2D" uid="uid://beyiv6r0dto0" path="res://assets/sprites/player_overworld/overworld_player_side_step_alt.png" id="7_u0pau"]
+[ext_resource type="Texture2D" uid="uid://cee5mwiqrpcls" path="res://assets/sprites/player_overworld/overworld_player_back_step.png" id="8_kjrpn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i8sun"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_hkij5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_duhyo")
+"texture": ExtResource("2_624xd")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ob4t8")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ob4t8")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wv8yl")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nqepi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_624xd")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_f2bfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ob4t8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u0pau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ob4t8")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_f2bfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ob4t8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u0pau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ob4t8")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_kjrpn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wv8yl")
+}],
+"loop": true,
+"name": &"walk_up",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi8bl"]
-size = Vector2(124.5, 125)
+size = Vector2(8, 8)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="PlayerCharacter" type="CharacterBody2D"]
 script = ExtResource("1_bwysj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_i8sun")
+animation = &"walk_up"
+script = ExtResource("4_yxtip")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.25, -0.5)
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_hi8bl")
+
+[connection signal="animation_changed" from="PlayerSprite" to="PlayerSprite" method="_on_animation_changed"]
+[connection signal="animation_looped" from="PlayerSprite" to="PlayerSprite" method="_on_animation_looped"]
