@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://boxqnfqqy3prr"]
+[gd_scene load_steps=6 format=3 uid="uid://boxqnfqqy3prr"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bwysj"]
 [ext_resource type="Texture2D" uid="uid://d0w6a001p6cwa" path="res://icon.svg" id="1_hkij5"]
@@ -18,15 +18,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi8bl"]
+size = Vector2(124.5, 125)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_bwysj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i8sun")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -53.0
-offset_top = 66.0
-offset_right = 55.0
-offset_bottom = 92.0
-text = "velocity mode"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, -0.5)
+shape = SubResource("RectangleShape2D_hi8bl")
