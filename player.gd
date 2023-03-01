@@ -24,6 +24,9 @@ func _physics_process(delta):
 	update_animation_state(direction)
 	velocity = direction * move_speed
 	if Input.is_action_just_pressed("reset_player"):
+		var resource = load("res://test.dialogue")
+		var dialogue_line = await resource.get_next_dialogue_line("this_is_a_node_title")
+		print(dialogue_line)
 		position = initial_postion
 	move_and_slide()
 
