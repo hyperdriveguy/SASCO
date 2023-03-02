@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dci1h1byus2ws"]
+[gd_scene load_steps=5 format=3 uid="uid://dci1h1byus2ws"]
 
+[ext_resource type="PackedScene" uid="uid://cd7unmqf154tg" path="res://friendly_cactus_npc.tscn" id="1_wy3i5"]
 [ext_resource type="Texture2D" uid="uid://d0u75srx2yn7b" path="res://assets/tilesets/desert.png" id="1_xqser"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v4jtp"]
@@ -823,6 +824,10 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_v4jtp")
 
 [node name="OutsideLevel" type="Node2D"]
+y_sort_enabled = true
+
+[node name="FriendlyCactusNPC" parent="." instance=ExtResource("1_wy3i5")]
+position = Vector2(120, 110)
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true

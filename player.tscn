@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://boxqnfqqy3prr"]
+[gd_scene load_steps=30 format=3 uid="uid://boxqnfqqy3prr"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bwysj"]
 [ext_resource type="Texture2D" uid="uid://qi8fwy7u3yk3" path="res://assets/sprites/player_overworld/overworld_player_allframes.png" id="2_8lo7c"]
@@ -321,6 +321,10 @@ graph_offset = Vector2(75.7333, 0)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_rb8ry"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8n7e1"]
+radius = 16.0
+height = 32.0
+
 [node name="PlayerCharacter" type="CharacterBody2D"]
 script = ExtResource("1_bwysj")
 move_speed = 80.0
@@ -330,6 +334,7 @@ texture = ExtResource("2_8lo7c")
 hframes = 7
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, 10.5)
 shape = SubResource("RectangleShape2D_hi8bl")
 
@@ -345,3 +350,15 @@ active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_rb8ry")
 parameters/idle/blend_position = Vector2(0, 0.5)
 parameters/walk/blend_position = Vector2(0, 0.5)
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_8n7e1")
+debug_color = Color(0.188235, 0.623529, 0.458824, 0.419608)
+
+[connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
+[connection signal="area_exited" from="InteractArea" to="." method="_on_interact_area_area_exited"]

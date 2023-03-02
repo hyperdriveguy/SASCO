@@ -10,4 +10,12 @@ Nathan: Here are some choices.
 - End the conversation => END
 Nathan: For more information see the online documentation.
 
+[shake rate=20 level=10]Nathan: Bruh
+
+Nathan: [[Hi|Hello|Howdy]]
+
+% Nathan: This is random line 1.
+% Nathan: This is random line 2.
+%1 Nathan: This is weighted random line 3.
+
 => END
