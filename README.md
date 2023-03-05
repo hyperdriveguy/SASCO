@@ -9,7 +9,7 @@ I learned the ropes of GDScript. I am particularly impressed by the native vecto
 
 The game is simple to play: use the arrow keys to move and the spacebar to interact when an indicator shows above the character's head.
 
-*TODO:* Video demonstration
+[Game Demonstration and Code Overview](https://youtu.be/P1A8syArljI)
 
 # Development Environment
 
