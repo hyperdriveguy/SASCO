@@ -7,6 +7,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# Handles zoom
 func _process(delta):
 	if Input.is_action_just_pressed("zoom_in"):
 		zoom *= 2

@@ -12,6 +12,7 @@ func _ready():
 func _process(delta):
 	pass
 
+# Change the level to a new one at a given path
 func change_level(new_level_path: String) -> void:
 	if current_level != null:
 		remove_child(current_level)
