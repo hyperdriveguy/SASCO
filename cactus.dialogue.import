@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_6"
+type="Resource"
+uid="uid://djlgytp5i6p06"
+path="res://.godot/imported/cactus.dialogue-8aa4a37fa06fd58dc4efebd7d7d98c50.tres"
+
+[deps]
+
+source_file="res://cactus.dialogue"
+dest_files=["res://.godot/imported/cactus.dialogue-8aa4a37fa06fd58dc4efebd7d7d98c50.tres"]
+
+[params]
+

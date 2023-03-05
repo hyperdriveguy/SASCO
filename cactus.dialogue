@@ -1,0 +1,23 @@
+~ bruh_time
+
+Talking Cactus: [[Hi|Hello|Howdy]] there!
+Talking Cactus: As you might have been able to tell, I am a talking cactus.
+Talking Cactus: In fact, I am [wave amp=20 freq=10]THE WORLD FAMOUS[/wave] talking cactus!
+
+Talking Cactus: Will you be my friend?
+- Yes
+	Talking Cactus: Oh that's wonderful!
+	Talking Cactus: ...
+	Talking Cactus: You don't plan on leaving me alone, do you?
+- No
+	Talking Cactus: Well that's too bad.
+	
+Talking Cactus: I'll be here if you need me then.
+=> END
+
+~ other_dude
+
+The Other Talking Cactus: My buddy over there is clingy. Don't worry about him.
+The Other Talking Cactus: It's not the first time someone [wave amp=35 freq=8]deserted[/wave] him.
+
+=> END
